@@ -32,7 +32,7 @@ public class ContactData {
         contacts.remove(contact);
     }
 
-    public void updateContact(Contact contact, int index) {
+    public void updateContact(int index, Contact contact) {
         contacts.set(index, contact);
     }
 
@@ -49,10 +49,6 @@ public class ContactData {
     public void saveContactsData() throws IOException {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            Contact contact = new Contact("sinb","sinb","143","Mystery");
-            contacts.add(contact);
-            Contact contact2 = new Contact("euhna","sinb","143","Mystery");
-            contacts.add(contact2);
             objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
             objectMapper.writeValue(new File(CONTACT_FILE), contacts);
         } catch (IOException e) {
